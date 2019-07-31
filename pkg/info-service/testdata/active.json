@@ -1,0 +1,246 @@
+{
+  "images": [
+    {
+      "name": "suse-sles-11-sp4-sapcal-v20180816-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20180816",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-082bfb28e7de47e17",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-12-sp1-sapcal-v20190623-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190623",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-057b6b1654d10ff7b",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-12-sp3-sapcal-v20190623-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190623",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-07dd6bca2aa25c67d",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-12-sp3-byos-v20180814-pv-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20180814",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-09fdb796b10aae015",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-12-sp4-v20190623-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190623",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-07b83401912032fbd",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-15-sp1-v20190624-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190624",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-0352b14942c00b04b",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-15-sp1-v20190624-hvm-ssd-arm64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190624",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-0528ca023f2b3c4df",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-12-sp4-byos-v20190623-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190623",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-0bbf92a30542c9520",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-15-sp1-byos-v20190624-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190624",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-0f9515259be7cd031",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-15-sp1-byos-v20190624-hvm-ssd-arm64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190624",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-08d7e80118e53e581",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-manager-3-2-server-byos-v20190623-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190623",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-02841d775f199596a",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-manager-4-0-server-byos-v20190725-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190725",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-097beae131ccb74cd",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-manager-3-2-proxy-byos-v20190623-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190623",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-03943b8bfde84b86b",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-manager-4-0-proxy-byos-v20190725-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190725",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-0099467f32d3d55e4",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-12-sp4-v20190623-ecs-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190623",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-02a5859a4af0b285d",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-15-sp1-v20190624-ecs-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190624",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-00777abbff96f8d59",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-sap-12-sp4-byos-v20190623-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190623",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-0b43525d3607a9460",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-sap-15-sp1-byos-v20190624-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190624",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-0e4c83bb27d898e8a",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-hpc-15-sp1-byos-v20190624-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20190624",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-03c99a6351b27de60",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-sap-12-sp1-v20171121-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20171121",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-7efc7e11",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-sap-12-sp2-v20180215-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20180215",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-adc8a9c2",
+      "deletedon": ""
+    },
+    {
+      "name": "suse-sles-sap-12-sp3-v20180215-hvm-ssd-x86_64",
+      "state": "active",
+      "replacementname": "",
+      "replacementid": "",
+      "publishedon": "20180215",
+      "deprecatedon": "",
+      "region": "eu-central-1",
+      "id": "ami-9cc6a7f3",
+      "deletedon": ""
+    }
+  ]
+}
