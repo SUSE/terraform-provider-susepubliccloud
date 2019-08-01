@@ -16,10 +16,6 @@ GOFMT ?= gofmt
 LN = ln
 RM = rm
 
-GOBINPATH    := $(shell $(GO) env GOPATH)/bin
-TAGS         := development
-PROJECT_PATH := github.com/SUSE/terraform-provider-susepubliccloud
-
 CODE_DIRS    = pkg susepubliccloud
 
 # go source files, ignore vendor directory
@@ -55,7 +51,7 @@ lint:
 # tests
 .PHONY: test
 test:
-	$(GO) test $(GOMODFLAG) -coverprofile=coverage.out $(PROJECT_PATH)/{pkg,susepubliccloud}/...
+	$(GO) test $(GOMODFLAG) -coverprofile=coverage.out -v ./...
 
 .PHONY: test-unit-coverage
 test-coverage: test

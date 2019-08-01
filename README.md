@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/SUSE/terraform-provider-susepubliccloud.svg?branch=master)](https://travis-ci.org/SUSE/terraform-provider-susepubliccloud)
+
 The purpose of this project is to define a set of [data sources](https://www.terraform.io/docs/configuration/data-sources.html)
 that make it easier to find the resources managed by SUSE on the different public clouds.
 
