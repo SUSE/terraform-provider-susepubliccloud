@@ -18,7 +18,7 @@ RM = rm
 
 GOBINPATH    := $(shell $(GO) env GOPATH)/bin
 TAGS         := development
-PROJECT_PATH := github.com/flavio/terraform-provider-susepubliccloud
+PROJECT_PATH := github.com/SUSE/terraform-provider-susepubliccloud
 
 CODE_DIRS    = pkg susepubliccloud
 

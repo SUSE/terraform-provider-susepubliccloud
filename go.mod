@@ -1,4 +1,4 @@
-module github.com/flavio/terraform-provider-susepubliccloud
+module github.com/SUSE/terraform-provider-susepubliccloud
 
 go 1.12
 

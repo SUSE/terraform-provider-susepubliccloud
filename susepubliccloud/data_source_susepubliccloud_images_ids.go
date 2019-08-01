@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/flavio/terraform-provider-susepubliccloud/pkg/info-service"
+	"github.com/SUSE/terraform-provider-susepubliccloud/pkg/info-service"
 	"github.com/hashicorp/terraform/helper/hashcode"
 	"github.com/hashicorp/terraform/helper/schema"
 	"github.com/hashicorp/terraform/helper/validation"

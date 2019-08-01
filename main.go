@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/flavio/terraform-provider-susepubliccloud/susepubliccloud"
+	"github.com/SUSE/terraform-provider-susepubliccloud/susepubliccloud"
 	"github.com/hashicorp/terraform/plugin"
 )
 

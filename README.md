@@ -70,7 +70,7 @@ Clone repository to: `$HOME/development/terraform-providers/`
 
 ```sh
 $ mkdir -p $HOME/development/terraform-providers/; cd $HOME/development/terraform-providers/
-$ git clone git@github.com:flavio/terraform-provider-susepubliccloud
+$ git clone git@github.com:SUSE/terraform-provider-susepubliccloud
 ...
 ```
 
