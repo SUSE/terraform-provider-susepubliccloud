@@ -14,14 +14,14 @@ import (
 	https://susepubliccloudinfo.suse.com/VERSION/FRAMEWORK/REGION/images.json
 
   {
-    "name": "suse-sles-11-sp4-sapcal-v20180816-hvm-ssd-x86_64",
+    "name": "suse-sles-15-sp1-v20190624-hvm-ssd-x86_64",
     "state": "active",
     "replacementname": "",
     "replacementid": "",
-    "publishedon": "20180816",
+    "publishedon": "20190624",
     "deprecatedon": "",
     "region": "eu-central-1",
-    "id": "ami-082bfb28e7de47e17",
+    "id": "ami-0352b14942c00b04b",
     "deletedon": ""
   },
 */
@@ -63,7 +63,6 @@ var VALID_IMAGE_STATES = []string{
 	"active",
 	"inactive",
 	"deprecated",
-	"deleted",
 }
 
 // Returns a list of images that match the search criteria provided by
