@@ -42,7 +42,9 @@ resource "aws_instance" "control_plane" {
   region identifiers as the provider describes them, for example `us-east-1` in
   Amazon EC2, or `East US 2` in Microsoft Azure.
 * `state` - (Defaults to `active`) State of the image. Valid values:
-  `active`, `inactive`, `deprecated` and `deleted`.
+  `active`, `inactive`, `deprecated`. Note well: the `deleted` state isn't
+  accepted by the data source because these images would not be usable by
+  terraform.
 * `name_regex` - (Optional) A regex string to apply to the images list returned
   by the remote API managed by SUSE.
 * `sort_ascending` - (Defaults to `false`) Used to sort by publication time.
