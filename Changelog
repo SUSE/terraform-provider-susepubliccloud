@@ -1,0 +1,4 @@
+Fri Aug 02 09:09:26 CEST 2019  Flavio Castelli <fcastelli@suse.com>
+
+	* Initial release 0.0.1
+	* Working implementation of `susepubliccloud_image_ids` data source
