@@ -1,0 +1,9 @@
+language: go
+os:
+  - linux
+sudo: false
+go:
+  - 1.12.x
+script:
+  - make
+  - make test
