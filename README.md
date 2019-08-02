@@ -59,6 +59,15 @@ specified [here](https://github.com/SUSE-Enceladus/public-cloud-info-service#ser
 `ids` is set to the list of images IDs, sorted by publication time according to
 `sort_ascending`.
 
+## Installing the Provider
+
+openSUSE and SUSE packages are being built inside of the
+[systensnabagenebt:terraform terraform-provider-susepubliccloud](https://build.opensuse.org/package/show/systemsmanagement:terraform/terraform-provider-susepubliccloud)
+project on the [Open Build Service](https://build.opensuse.org/).
+
+The packages can be installed by visiting the [dedicated page](https://software.opensuse.org/package/terraform-provider-susepubliccloud?search_term=terraform-provider-susepubliccloud)
+on [software.opensuse.org](https://software.opensuse.org).
+
 ## Developing the Provider
 
 If you wish to work on the provider, you'll need:
