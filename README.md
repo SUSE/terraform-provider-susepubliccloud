@@ -62,7 +62,7 @@ specified [here](https://github.com/SUSE-Enceladus/public-cloud-info-service#ser
 ## Installing the Provider
 
 openSUSE and SUSE packages are being built inside of the
-[systensnabagenebt:terraform terraform-provider-susepubliccloud](https://build.opensuse.org/package/show/systemsmanagement:terraform/terraform-provider-susepubliccloud)
+[systemsmanagement:terraform terraform-provider-susepubliccloud](https://build.opensuse.org/package/show/systemsmanagement:terraform/terraform-provider-susepubliccloud)
 project on the [Open Build Service](https://build.opensuse.org/).
 
 The packages can be installed by visiting the [dedicated page](https://software.opensuse.org/package/terraform-provider-susepubliccloud?search_term=terraform-provider-susepubliccloud)
