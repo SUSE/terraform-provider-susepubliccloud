@@ -20,9 +20,6 @@ func Provider() terraform.ResourceProvider {
 	}
 }
 
-func init() {
-}
-
 func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	return nil, nil
 }
