@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/SUSE/terraform-provider-susepubliccloud/susepubliccloud"
-	"github.com/hashicorp/terraform/plugin"
+	"github.com/hashicorp/terraform-plugin-sdk/plugin"
 )
 
 func main() {
