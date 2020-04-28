@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
 	"regexp"
 	"sort"
 	"time"
@@ -78,31 +79,34 @@ func GetImages(params SearchParams) ([]Image, error) {
 		params.ApiEndpoint = API_ENDPOINT
 	}
 
-	url := fmt.Sprintf(
+	u, err := url.Parse(fmt.Sprintf(
 		"%s/%s/%s/images/%s.json",
 		params.ApiEndpoint,
 		params.Cloud,
 		params.Region,
-		params.State)
+		params.State))
+	if err != nil {
+		return images, err
+	}
 
-	resp, err := http.Get(url)
+	resp, err := http.Get(u.String())
 	if err != nil {
 		return images,
-			fmt.Errorf("Error while accessing %s: %v", url, err)
+			fmt.Errorf("Error while accessing %v: %v", u, err)
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
 		return images,
-			fmt.Errorf("Unexpected HTTP status %d while accessing %s",
-				resp.StatusCode, url)
+			fmt.Errorf("Unexpected HTTP status %d while accessing %v",
+				resp.StatusCode, u)
 	}
 
 	var reply imagesReply
 	if err = json.NewDecoder(resp.Body).Decode(&reply); err != nil {
 		return images,
-			fmt.Errorf("Error while decoding remote response from %s: %s",
-				url, err)
+			fmt.Errorf("Error while decoding remote response from %s: %v",
+				u, err)
 	}
 
 	if params.NameRegex != "" {
