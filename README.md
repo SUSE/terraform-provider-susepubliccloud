@@ -111,3 +111,9 @@ Unit test coverage can be seen by executing:
 ```sh
 $ make test-coverage
 ```
+
+Code can be linted via:
+
+```sh
+$ make lint
+```

@@ -42,11 +42,16 @@ go-version-check:
 		[ $(GO_VERSION_MAJ) -eq 1 -a $(GO_VERSION_MIN) -ge 12 ] || (echo "FATAL: Go version should be >= 1.12.x" ; exit 1 ; )
 
 .PHONY: lint
-lint:
+lint: deps
 	# explicitly enable GO111MODULE otherwise go mod will fail
 	GO111MODULE=on go mod tidy && GO111MODULE=on go mod vendor && GO111MODULE=on go mod verify
 	$(GO) vet ./...
 	test -z `$(GOFMT) -l $(CODE_SRCS)` || { $(GOFMT) -d $(CODE_SRCS) && false; }
+	golint -set_exit_status pkg/... susepubliccloud/...
+
+.PHONY: deps
+deps:
+	go get -u golang.org/x/lint/golint
 
 # tests
 .PHONY: test
