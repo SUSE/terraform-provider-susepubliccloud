@@ -1,3 +1,9 @@
+Fri Jun 12 11:02:32 CEST 2020  Flavio Castelli <flavio@castelli.me>
+
+	* Update to v0.0.2
+	* Move to use terraform plugin SDK as recommended by upstream
+	* Properly build URLs, fixes querying Azure information
+
 Fri Aug 02 09:09:26 CEST 2019  Flavio Castelli <fcastelli@suse.com>
 
 	* Initial release 0.0.1
