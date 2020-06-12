@@ -37,7 +37,7 @@ func TestValidRequestForActiveImages(t *testing.T) {
 
 	}))
 	defer ts.Close()
-	params.ApiEndpoint = ts.URL
+	params.APIEndpoint = ts.URL
 
 	images, err := GetImages(params)
 	if err != nil {
@@ -77,7 +77,7 @@ func TestFilterImages(t *testing.T) {
 
 	}))
 	defer ts.Close()
-	params.ApiEndpoint = ts.URL
+	params.APIEndpoint = ts.URL
 
 	images, err := GetImages(params)
 	if err != nil {
@@ -118,7 +118,7 @@ func TestSortAscendingImages(t *testing.T) {
 
 	}))
 	defer ts.Close()
-	params.ApiEndpoint = ts.URL
+	params.APIEndpoint = ts.URL
 
 	images, err := GetImages(params)
 	if err != nil {
@@ -134,7 +134,7 @@ func TestSortAscendingImages(t *testing.T) {
 		"ami-07dd6bca2aa25c67d",
 	}
 	for pos, image := range images {
-		if image.Id != expectedIDs[pos] {
+		if image.ID != expectedIDs[pos] {
 			t.Fatalf("Sorting error for image at position %d", pos)
 		}
 	}
@@ -170,7 +170,7 @@ func TestSortDescendingImages(t *testing.T) {
 
 	}))
 	defer ts.Close()
-	params.ApiEndpoint = ts.URL
+	params.APIEndpoint = ts.URL
 
 	images, err := GetImages(params)
 	if err != nil {
@@ -186,7 +186,7 @@ func TestSortDescendingImages(t *testing.T) {
 		"ami-082bfb28e7de47e17",
 	}
 	for pos, image := range images {
-		if image.Id != expectedIDs[pos] {
+		if image.ID != expectedIDs[pos] {
 			t.Fatalf("Sorting error for image at position %d", pos)
 		}
 	}

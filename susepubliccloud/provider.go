@@ -12,7 +12,7 @@ func Provider() terraform.ResourceProvider {
 		Schema: map[string]*schema.Schema{},
 
 		DataSourcesMap: map[string]*schema.Resource{
-			"susepubliccloud_image_ids": dataSourceSUSEPublicCloudImageIds(),
+			"susepubliccloud_image_ids": dataSourceSUSEPublicCloudImageIDs(),
 		},
 
 		ResourcesMap:  map[string]*schema.Resource{},

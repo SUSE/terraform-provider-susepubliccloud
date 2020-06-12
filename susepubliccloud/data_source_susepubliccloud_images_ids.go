@@ -10,9 +10,9 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
 )
 
-func dataSourceSUSEPublicCloudImageIds() *schema.Resource {
+func dataSourceSUSEPublicCloudImageIDs() *schema.Resource {
 	return &schema.Resource{
-		Read: dataSourceSUSEPublicCloudImageIdsRead,
+		Read: dataSourceSUSEPublicCloudImageIDsRead,
 		Schema: map[string]*schema.Schema{
 			"name_regex": {
 				Type:         schema.TypeString,
@@ -71,7 +71,7 @@ func validateState(i interface{}, k string) (s []string, es []error) {
 	return
 }
 
-func dataSourceSUSEPublicCloudImageIdsRead(d *schema.ResourceData, meta interface{}) error {
+func dataSourceSUSEPublicCloudImageIDsRead(d *schema.ResourceData, meta interface{}) error {
 	params := images.SearchParams{
 		Cloud:  d.Get("cloud").(string),
 		Region: d.Get("region").(string),
@@ -97,13 +97,13 @@ func dataSourceSUSEPublicCloudImageIdsRead(d *schema.ResourceData, meta interfac
 		return err
 	}
 
-	imageIds := make([]string, 0)
+	imageIDs := make([]string, 0)
 	for _, image := range images {
-		imageIds = append(imageIds, image.Id)
+		imageIDs = append(imageIDs, image.ID)
 	}
 
 	d.SetId(fmt.Sprintf("%d", hashcode.String(fmt.Sprintf("%+v", params))))
-	d.Set("ids", imageIds)
+	d.Set("ids", imageIDs)
 
 	return nil
 }

@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/SUSE/terraform-provider-susepubliccloud.svg?branch=master)](https://travis-ci.org/SUSE/terraform-provider-susepubliccloud)
+| Go Report                                                                                                                                | Unit tests                                                                          | License |
+|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|---------|
+| [![Go Report Card](https://goreportcard.com/badge/github.com/SUSE/terraform-provider-susepubliccloud)](https://goreportcard.com/report/github.com/SUSE/terraform-provider-susepubliccloud) | [![tests](https://github.com/SUSE/terraform-provider-susepubliccloud/workflows/tests/badge.svg?branch=master)](https://github.com/SUSE/terraform-provider-susepubliccloud/actions?query=workflow%3Atests+branch%3Amaster) | [![License: Apache 2.0](https://img.shields.io/badge/License-Apache2.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0) |
 
 The purpose of this project is to define a set of [data sources](https://www.terraform.io/docs/configuration/data-sources.html)
 that make it easier to find the resources managed by SUSE on the different public clouds.
@@ -110,4 +112,10 @@ Unit test coverage can be seen by executing:
 
 ```sh
 $ make test-coverage
+```
+
+Code can be linted via:
+
+```sh
+$ make lint
 ```
