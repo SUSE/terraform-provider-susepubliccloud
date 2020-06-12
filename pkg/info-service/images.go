@@ -10,31 +10,29 @@ import (
 	"time"
 )
 
-/*
-	Describes an object returned by
-	https://susepubliccloudinfo.suse.com/VERSION/FRAMEWORK/REGION/images.json
-
-  {
-    "name": "suse-sles-15-sp1-v20190624-hvm-ssd-x86_64",
-    "state": "active",
-    "replacementname": "",
-    "replacementid": "",
-    "publishedon": "20190624",
-    "deprecatedon": "",
-    "region": "eu-central-1",
-    "id": "ami-0352b14942c00b04b",
-    "deletedon": ""
-  },
-*/
+// Image describes an object returned by
+// https://susepubliccloudinfo.suse.com/VERSION/FRAMEWORK/REGION/images.json
+//
+// {
+//   "name": "suse-sles-15-sp1-v20190624-hvm-ssd-x86_64",
+//   "state": "active",
+//   "replacementname": "",
+//   "replacementid": "",
+//   "publishedon": "20190624",
+//   "deprecatedon": "",
+//   "region": "eu-central-1",
+//   "id": "ami-0352b14942c00b04b",
+//   "deletedon": ""
+// },
 type Image struct {
 	Name            string `json:"name"`
 	State           string `jsong:"state"`
 	ReplacementName string `json:"replacementname,omitempty"`
-	ReplacementId   string `json:"replacementid,omitempty"`
+	ReplacementID   string `json:"replacementid,omitempty"`
 	PublishedOn     string `json:"publishedon"`
 	DeprecatedOn    string `json:"deprecatedon,omitempty"`
 	Region          string `json:"region"`
-	Id              string `json:"id"`
+	ID              string `json:"id"`
 	DeletedOn       string `json:"deletedon,omitempty"`
 }
 
@@ -44,9 +42,10 @@ type imagesReply struct {
 	Images []Image `json:"images"`
 }
 
-// Used to describe the search criteria to find one or more images
+// SearchParams is used to describe the search criteria to find one or more
+// images
 type SearchParams struct {
-	ApiEndpoint   string
+	APIEndpoint   string
 	Cloud         string
 	NameRegex     string
 	Region        string
@@ -54,19 +53,19 @@ type SearchParams struct {
 	State         string
 }
 
-// Endoint of the public instance of
+// APIEndpoint is the endoint of the public instance of
 // https://github.com/SUSE-Enceladus/public-cloud-info-service
-const API_ENDPOINT = "https://susepubliccloudinfo.suse.com/v1/"
+const APIEndpoint = "https://susepubliccloudinfo.suse.com/v1/"
 
-// Valid states of public cloud images as documented here:
+// ValidImageStates holds the valid states of public cloud images as documented here:
 // https://github.com/SUSE-Enceladus/public-cloud-info-service#server-design
-var VALID_IMAGE_STATES = []string{
+var ValidImageStates = []string{
 	"active",
 	"inactive",
 	"deprecated",
 }
 
-// Returns a list of images that match the search criteria provided by
+// GetImages returns a list of images that match the search criteria provided by
 // the user.
 func GetImages(params SearchParams) ([]Image, error) {
 	images := make([]Image, 0)
@@ -75,13 +74,13 @@ func GetImages(params SearchParams) ([]Image, error) {
 		return images, err
 	}
 
-	if params.ApiEndpoint == "" {
-		params.ApiEndpoint = API_ENDPOINT
+	if params.APIEndpoint == "" {
+		params.APIEndpoint = APIEndpoint
 	}
 
 	u, err := url.Parse(fmt.Sprintf(
 		"%s/%s/%s/images/%s.json",
-		params.ApiEndpoint,
+		params.APIEndpoint,
 		params.Cloud,
 		params.Region,
 		params.State))
@@ -132,9 +131,9 @@ func GetImages(params SearchParams) ([]Image, error) {
 	return images, nil
 }
 
-// Raises an error if the specified image state is not a valid one
+// ValidateState raises an error if the specified image state is not a valid one
 func ValidateState(state string) error {
-	for _, vs := range VALID_IMAGE_STATES {
+	for _, vs := range ValidImageStates {
 		if state == vs {
 			return nil
 		}
