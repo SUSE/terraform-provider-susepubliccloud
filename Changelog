@@ -1,3 +1,9 @@
+Thu Oct 22 21:52:05 CEST 2020  Flavio Castelli <flavio@castelli.me>
+
+	* Create release v0.0.3
+	* Automate release process, this is needed to publish this provider to the
+	terraform registry
+
 Fri Jun 12 11:02:32 CEST 2020  Flavio Castelli <flavio@castelli.me>
 
 	* Update to v0.0.2
