@@ -1,3 +1,8 @@
+Thu Oct 22 22:14:59 CEST 2020  Flavio Castelli <flavio@castelli.me>
+
+	* Create release v0.0.4
+	* Add documentation in a format understandable by the terraform registry
+
 Thu Oct 22 21:52:05 CEST 2020  Flavio Castelli <flavio@castelli.me>
 
 	* Create release v0.0.3
