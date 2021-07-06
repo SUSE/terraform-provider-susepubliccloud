@@ -63,6 +63,13 @@ specified [here](https://github.com/SUSE-Enceladus/public-cloud-info-service#ser
 
 ## Installing the Provider
 
+This provider is published on the official [terraform registry](https://registry.terraform.io/providers/SUSE/susepubliccloud/latest), that makes
+the provider installable by terraform. This is definitely the easiest way to go.
+
+You can find more information about that by clicking on the "USE PROVIDER" button on the [terraform registry page](https://registry.terraform.io/providers/SUSE/susepubliccloud/latest).
+
+### RPM packages
+
 openSUSE and SUSE packages are being built inside of the
 [systemsmanagement:terraform terraform-provider-susepubliccloud](https://build.opensuse.org/package/show/systemsmanagement:terraform/terraform-provider-susepubliccloud)
 project on the [Open Build Service](https://build.opensuse.org/).
