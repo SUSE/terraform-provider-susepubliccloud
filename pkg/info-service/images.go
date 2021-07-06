@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"net/url"
+	"path/filepath"
 	"regexp"
 	"sort"
 	"time"
@@ -46,6 +47,7 @@ type imagesReply struct {
 // images
 type SearchParams struct {
 	APIEndpoint   string
+	APIVersion    string
 	Cloud         string
 	NameRegex     string
 	Region        string
@@ -55,7 +57,10 @@ type SearchParams struct {
 
 // APIEndpoint is the endoint of the public instance of
 // https://github.com/SUSE-Enceladus/public-cloud-info-service
-const APIEndpoint = "https://susepubliccloudinfo.suse.com/v1/"
+const APIEndpoint = "https://susepubliccloudinfo.suse.com"
+
+// APIVersion is the version of the enceladus API to be queried
+const APIVersion = "v1"
 
 // ValidImageStates holds the valid states of public cloud images as documented here:
 // https://github.com/SUSE-Enceladus/public-cloud-info-service#server-design
@@ -78,34 +83,44 @@ func GetImages(params SearchParams) ([]Image, error) {
 		params.APIEndpoint = APIEndpoint
 	}
 
-	u, err := url.Parse(fmt.Sprintf(
-		"%s/%s/%s/images/%s.json",
-		params.APIEndpoint,
-		params.Cloud,
-		params.Region,
-		params.State))
+	if params.APIVersion == "" {
+		params.APIVersion = APIVersion
+	}
+
+	baseURL, err := url.Parse(params.APIEndpoint)
 	if err != nil {
 		return images, err
 	}
 
-	resp, err := http.Get(u.String())
+	urlPath := filepath.Join(
+		params.APIVersion,
+		params.Cloud,
+		params.Region,
+		"images",
+		fmt.Sprintf("%s.json", params.State))
+	relURL, err := baseURL.Parse(urlPath)
+	if err != nil {
+		return images, err
+	}
+
+	resp, err := http.Get(relURL.String())
 	if err != nil {
 		return images,
-			fmt.Errorf("Error while accessing %v: %v", u, err)
+			fmt.Errorf("Error while accessing %v: %v", relURL, err)
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
 		return images,
 			fmt.Errorf("Unexpected HTTP status %d while accessing %v",
-				resp.StatusCode, u)
+				resp.StatusCode, relURL)
 	}
 
 	var reply imagesReply
 	if err = json.NewDecoder(resp.Body).Decode(&reply); err != nil {
 		return images,
 			fmt.Errorf("Error while decoding remote response from %s: %v",
-				u, err)
+				relURL, err)
 	}
 
 	if params.NameRegex != "" {

@@ -11,12 +11,14 @@ import (
 
 func TestValidRequestForActiveImages(t *testing.T) {
 	params := SearchParams{
-		Cloud:  "amazon",
-		Region: "eu-central-1",
-		State:  "active",
+		APIVersion: "v1",
+		Cloud:      "amazon",
+		Region:     "eu-central-1",
+		State:      "active",
 	}
 	expectedRequest := fmt.Sprintf(
-		"/%s/%s/images/%s.json",
+		"/%s/%s/%s/images/%s.json",
+		params.APIVersion,
 		params.Cloud,
 		params.Region,
 		params.State)
@@ -50,13 +52,15 @@ func TestValidRequestForActiveImages(t *testing.T) {
 
 func TestFilterImages(t *testing.T) {
 	params := SearchParams{
-		Cloud:     "amazon",
-		Region:    "eu-central-1",
-		State:     "active",
-		NameRegex: "suse-sles-15-sp1-byos.*-hvm-ssd-x86_64",
+		APIVersion: "v1",
+		Cloud:      "amazon",
+		Region:     "eu-central-1",
+		State:      "active",
+		NameRegex:  "suse-sles-15-sp1-byos.*-hvm-ssd-x86_64",
 	}
 	expectedRequest := fmt.Sprintf(
-		"/%s/%s/images/%s.json",
+		"/%s/%s/%s/images/%s.json",
+		params.APIVersion,
 		params.Cloud,
 		params.Region,
 		params.State)
@@ -90,6 +94,7 @@ func TestFilterImages(t *testing.T) {
 
 func TestSortAscendingImages(t *testing.T) {
 	params := SearchParams{
+		APIVersion:    "v1",
 		Cloud:         "amazon",
 		Region:        "eu-central-1",
 		State:         "active",
@@ -97,7 +102,8 @@ func TestSortAscendingImages(t *testing.T) {
 		NameRegex:     "suse-sles-.*-sapcal.*-hvm-ssd-x86_64",
 	}
 	expectedRequest := fmt.Sprintf(
-		"/%s/%s/images/%s.json",
+		"/%s/%s/%s/images/%s.json",
+		params.APIVersion,
 		params.Cloud,
 		params.Region,
 		params.State)
@@ -125,7 +131,7 @@ func TestSortAscendingImages(t *testing.T) {
 		t.Fatal("It should've run just fine...")
 	}
 	if len(images) != 3 {
-		t.Fatalf("Unexpected number of images found. Got %d, expected %d", len(images), 1)
+		t.Fatalf("Unexpected number of images found. Got %d, expected %d", len(images), 3)
 	}
 
 	expectedIDs := []string{
@@ -143,13 +149,15 @@ func TestSortAscendingImages(t *testing.T) {
 func TestSortDescendingImages(t *testing.T) {
 	// descending order is the default one
 	params := SearchParams{
-		Cloud:     "amazon",
-		Region:    "eu-central-1",
-		State:     "active",
-		NameRegex: "suse-sles-.*-sapcal.*-hvm-ssd-x86_64",
+		APIVersion: "v1",
+		Cloud:      "amazon",
+		Region:     "eu-central-1",
+		State:      "active",
+		NameRegex:  "suse-sles-.*-sapcal.*-hvm-ssd-x86_64",
 	}
 	expectedRequest := fmt.Sprintf(
-		"/%s/%s/images/%s.json",
+		"/%s/%s/%s/images/%s.json",
+		params.APIVersion,
 		params.Cloud,
 		params.Region,
 		params.State)
@@ -177,7 +185,7 @@ func TestSortDescendingImages(t *testing.T) {
 		t.Fatal("It should've run just fine...")
 	}
 	if len(images) != 3 {
-		t.Fatalf("Unexpected number of images found. Got %d, expected %d", len(images), 1)
+		t.Fatalf("Unexpected number of images found. Got %d, expected %d", len(images), 3)
 	}
 
 	expectedIDs := []string{
