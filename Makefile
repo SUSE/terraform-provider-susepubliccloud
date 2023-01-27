@@ -12,6 +12,10 @@ GO_VERSION     := $(shell $(GO) version | sed -e 's/^[^0-9.]*\([0-9.]*\).*/\1/')
 GO_VERSION_MAJ := $(shell echo $(GO_VERSION) | cut -f1 -d'.')
 GO_VERSION_MIN := $(shell echo $(GO_VERSION) | cut -f2 -d'.')
 
+GOLANGCI_LINT_VER := v1.49.0
+GOLANGCI_LINT_BIN := golangci-lint
+GOLANGCI_LINT := $(BIN_DIR)/$(GOLANGCI_LINT_BIN)
+
 GOFMT ?= gofmt
 LN = ln
 RM = rm
@@ -47,11 +51,11 @@ lint: deps
 	GO111MODULE=on go mod tidy && GO111MODULE=on go mod vendor && GO111MODULE=on go mod verify
 	$(GO) vet ./...
 	test -z `$(GOFMT) -l $(CODE_SRCS)` || { $(GOFMT) -d $(CODE_SRCS) && false; }
-	golint -set_exit_status pkg/... susepubliccloud/...
+	golangci-lint run
 
 .PHONY: deps
 deps:
-	go get -u golang.org/x/lint/golint
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@$(GOLANGCI_LINT_VER)
 
 # tests
 .PHONY: test
