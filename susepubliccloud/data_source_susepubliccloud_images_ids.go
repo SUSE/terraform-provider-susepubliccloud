@@ -2,10 +2,10 @@ package susepubliccloud
 
 import (
 	"fmt"
+	"hash/crc32"
 	"log"
 
-	"github.com/SUSE/terraform-provider-susepubliccloud/pkg/info-service"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/hashcode"
+	images "github.com/SUSE/terraform-provider-susepubliccloud/pkg/info-service"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
 )
@@ -18,7 +18,7 @@ func dataSourceSUSEPublicCloudImageIDs() *schema.Resource {
 				Type:         schema.TypeString,
 				Optional:     true,
 				ForceNew:     true,
-				ValidateFunc: validation.ValidateRegexp,
+				ValidateFunc: validation.StringIsValidRegExp,
 			},
 			"cloud": {
 				Type:         schema.TypeString,
@@ -102,8 +102,26 @@ func dataSourceSUSEPublicCloudImageIDsRead(d *schema.ResourceData, meta interfac
 		imageIDs = append(imageIDs, image.ID)
 	}
 
-	d.SetId(fmt.Sprintf("%d", hashcode.String(fmt.Sprintf("%+v", params))))
-	d.Set("ids", imageIDs)
+	d.SetId(fmt.Sprintf("%d", stringTohashcode(fmt.Sprintf("%+v", params))))
+	return d.Set("ids", imageIDs)
+}
 
-	return nil
+// String hashes a string to a unique hashcode.
+//
+// Copied from hashicorp/terraform-plugin-sdk/helper/hashcode/hashcode.go
+// Because this is going to be dropped in future releases of the library
+//
+// crc32 returns a uint32, but for our use we need
+// and non negative integer. Here we cast to an integer
+// and invert it if the result is negative.
+func stringTohashcode(s string) int {
+	v := int(crc32.ChecksumIEEE([]byte(s)))
+	if v >= 0 {
+		return v
+	}
+	if -v >= 0 {
+		return -v
+	}
+	// v == MinInt
+	return 0
 }

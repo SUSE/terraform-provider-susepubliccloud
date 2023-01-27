@@ -14,17 +14,17 @@ import (
 // Image describes an object returned by
 // https://susepubliccloudinfo.suse.com/VERSION/FRAMEWORK/REGION/images.json
 //
-// {
-//   "name": "suse-sles-15-sp1-v20190624-hvm-ssd-x86_64",
-//   "state": "active",
-//   "replacementname": "",
-//   "replacementid": "",
-//   "publishedon": "20190624",
-//   "deprecatedon": "",
-//   "region": "eu-central-1",
-//   "id": "ami-0352b14942c00b04b",
-//   "deletedon": ""
-// },
+//	{
+//	  "name": "suse-sles-15-sp1-v20190624-hvm-ssd-x86_64",
+//	  "state": "active",
+//	  "replacementname": "",
+//	  "replacementid": "",
+//	  "publishedon": "20190624",
+//	  "deprecatedon": "",
+//	  "region": "eu-central-1",
+//	  "id": "ami-0352b14942c00b04b",
+//	  "deletedon": ""
+//	},
 type Image struct {
 	Name            string `json:"name"`
 	State           string `jsong:"state"`

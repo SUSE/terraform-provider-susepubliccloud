@@ -35,7 +35,9 @@ func TestValidRequestForActiveImages(t *testing.T) {
 			return
 		}
 		defer file.Close()
-		io.Copy(w, file)
+		if _, err := io.Copy(w, file); err != nil {
+			t.Fatalf("unexpected error %v", err)
+		}
 
 	}))
 	defer ts.Close()
@@ -77,7 +79,9 @@ func TestFilterImages(t *testing.T) {
 			return
 		}
 		defer file.Close()
-		io.Copy(w, file)
+		if _, err := io.Copy(w, file); err != nil {
+			t.Fatalf("unexpected error %v", err)
+		}
 
 	}))
 	defer ts.Close()
@@ -120,7 +124,9 @@ func TestSortAscendingImages(t *testing.T) {
 			return
 		}
 		defer file.Close()
-		io.Copy(w, file)
+		if _, err := io.Copy(w, file); err != nil {
+			t.Fatalf("unexpected error %v", err)
+		}
 
 	}))
 	defer ts.Close()
@@ -174,7 +180,9 @@ func TestSortDescendingImages(t *testing.T) {
 			return
 		}
 		defer file.Close()
-		io.Copy(w, file)
+		if _, err := io.Copy(w, file); err != nil {
+			t.Fatalf("unexpected error %v", err)
+		}
 
 	}))
 	defer ts.Close()
