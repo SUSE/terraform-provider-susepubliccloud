@@ -1,6 +1,6 @@
 module github.com/SUSE/terraform-provider-susepubliccloud
 
-go 1.19
+go 1.23
 
 require github.com/hashicorp/terraform-plugin-sdk v1.17.2
 
@@ -63,7 +63,7 @@ require (
 	github.com/zclconf/go-cty-yaml v1.0.2 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	golang.org/x/crypto v0.31.0 // indirect
-	golang.org/x/net v0.23.0 // indirect
+	golang.org/x/net v0.33.0 // indirect
 	golang.org/x/oauth2 v0.7.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
