@@ -1,2 +1,3 @@
-terraform-provider-susepubliccloud
+bin
 coverage.out
+terraform-provider-susepubliccloud

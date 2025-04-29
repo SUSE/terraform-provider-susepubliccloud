@@ -1,6 +1,9 @@
 module github.com/SUSE/terraform-provider-susepubliccloud
 
-go 1.23
+go 1.23.0
+
+toolchain go1.24.2
+
 require github.com/hashicorp/terraform-plugin-sdk v1.17.2
 
 require (
