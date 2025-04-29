@@ -31,14 +31,20 @@ func TestValidRequestForActiveImages(t *testing.T) {
 
 		file, err := os.Open("testdata/active.json")
 		if err != nil {
-			fmt.Fprintln(w, "FAIL!")
+			if _, e := fmt.Fprintln(w, "FAIL!"); e != nil {
+				t.Fatalf("unexpected error %v", e)
+			}
 			return
 		}
-		defer file.Close()
+		defer func() {
+			if err := file.Close(); err != nil {
+				t.Errorf("failed to close file: %v", err)
+			}
+		}()
+
 		if _, err := io.Copy(w, file); err != nil {
 			t.Fatalf("unexpected error %v", err)
 		}
-
 	}))
 	defer ts.Close()
 	params.APIEndpoint = ts.URL
@@ -75,14 +81,20 @@ func TestFilterImages(t *testing.T) {
 
 		file, err := os.Open("testdata/active.json")
 		if err != nil {
-			fmt.Fprintln(w, "FAIL!")
+			if _, e := fmt.Fprintln(w, "FAIL!"); e != nil {
+				t.Fatalf("unexpected error %v", e)
+			}
 			return
 		}
-		defer file.Close()
+		defer func() {
+			if err := file.Close(); err != nil {
+				t.Errorf("failed to close file: %v", err)
+			}
+		}()
+
 		if _, err := io.Copy(w, file); err != nil {
 			t.Fatalf("unexpected error %v", err)
 		}
-
 	}))
 	defer ts.Close()
 	params.APIEndpoint = ts.URL
@@ -120,14 +132,21 @@ func TestSortAscendingImages(t *testing.T) {
 
 		file, err := os.Open("testdata/active.json")
 		if err != nil {
-			fmt.Fprintln(w, "FAIL!")
+			if _, e := fmt.Fprintln(w, "FAIL!"); e != nil {
+				t.Fatalf("unexpected error %v", e)
+			}
+
 			return
 		}
-		defer file.Close()
+		defer func() {
+			if err := file.Close(); err != nil {
+				t.Errorf("failed to close file: %v", err)
+			}
+		}()
+
 		if _, err := io.Copy(w, file); err != nil {
 			t.Fatalf("unexpected error %v", err)
 		}
-
 	}))
 	defer ts.Close()
 	params.APIEndpoint = ts.URL
@@ -176,14 +195,20 @@ func TestSortDescendingImages(t *testing.T) {
 
 		file, err := os.Open("testdata/active.json")
 		if err != nil {
-			fmt.Fprintln(w, "FAIL!")
+			if _, e := fmt.Fprintln(w, "FAIL!"); e != nil {
+				t.Fatalf("unexpected error %v", e)
+			}
 			return
 		}
-		defer file.Close()
+		defer func() {
+			if err := file.Close(); err != nil {
+				t.Errorf("failed to close file: %v", err)
+			}
+		}()
+
 		if _, err := io.Copy(w, file); err != nil {
 			t.Fatalf("unexpected error %v", err)
 		}
-
 	}))
 	defer ts.Close()
 	params.APIEndpoint = ts.URL

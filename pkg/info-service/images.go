@@ -3,6 +3,7 @@ package images
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 	"net/url"
 	"path/filepath"
@@ -106,20 +107,24 @@ func GetImages(params SearchParams) ([]Image, error) {
 	resp, err := http.Get(relURL.String())
 	if err != nil {
 		return images,
-			fmt.Errorf("Error while accessing %v: %v", relURL, err)
+			fmt.Errorf("error while accessing %v: %v", relURL, err)
 	}
-	defer resp.Body.Close()
+	defer func() {
+		if e := resp.Body.Close(); e != nil {
+			log.Printf("failed to close response body: %v", e)
+		}
+	}()
 
 	if resp.StatusCode != 200 {
 		return images,
-			fmt.Errorf("Unexpected HTTP status %d while accessing %v",
+			fmt.Errorf("unexpected HTTP status %d while accessing %v",
 				resp.StatusCode, relURL)
 	}
 
 	var reply imagesReply
 	if err = json.NewDecoder(resp.Body).Decode(&reply); err != nil {
 		return images,
-			fmt.Errorf("Error while decoding remote response from %s: %v",
+			fmt.Errorf("error while decoding remote response from %s: %v",
 				relURL, err)
 	}
 
@@ -154,5 +159,5 @@ func ValidateState(state string) error {
 		}
 	}
 
-	return fmt.Errorf("Invalid image state: %s", state)
+	return fmt.Errorf("invalid image state: %s", state)
 }
